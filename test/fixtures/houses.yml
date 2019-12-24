@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  price: 1
+  price: 1.5
   address: MyString
-  old: 1
+  old: 1.5
   remarks: MyText
 
 two:
   name: MyString
-  price: 1
+  price: 1.5
   address: MyString
-  old: 1
+  old: 1.5
   remarks: MyText
