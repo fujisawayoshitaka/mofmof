@@ -5,6 +5,7 @@ class DistancesController < ApplicationController
   # GET /distances.json
   def index
     @distances = Distance.all
+    @houses = House.all
   end
 
   # GET /distances/1
@@ -25,7 +26,6 @@ class DistancesController < ApplicationController
   # POST /distances.json
   def create
     @distance = Distance.new(distance_params)
-
     respond_to do |format|
       if @distance.save
         format.html { redirect_to @distance, notice: 'Distance was successfully created.' }

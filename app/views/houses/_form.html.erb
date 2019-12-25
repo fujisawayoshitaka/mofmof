@@ -35,6 +35,28 @@
     <%= form.label :remarks %>
     <%= form.text_area :remarks %>
   </div>
+  <br>
+  <div class="field">
+  <hr>
+      <%= form.fields_for :distances do |distances_form| %>
+        <p>最寄駅</p>
+        <br>
+        <%= distances_form.label :route, "路線名" %>
+        <%= distances_form.text_field :route %>
+        <br>
+        <%= distances_form.label :station, "駅名" %>
+        <%= distances_form.text_field :station %>
+        <br>
+        <%= distances_form.label :foot, "徒歩分数" %>
+        <%= distances_form.text_field :foot %>
+        <br>
+        <hr>
+      <% end %>
+  </div>
+
+
+  <br>
+
 
   <div class="actions">
     <%= form.submit %>
