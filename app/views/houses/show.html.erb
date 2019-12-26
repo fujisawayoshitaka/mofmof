@@ -26,11 +26,8 @@
 </p>
 <hr>
 
-
-  <% @distances.each do |distance| %>
-    <p>
-      <strong>最寄駅:</strong>
-    </p>
+  <% @house.distances.each.with_index(1) do |distance, index| %>
+    <p>最寄駅:<%= index %></p>
     <tr>
       <p>
         <strong>路線名:</strong>
@@ -47,6 +44,7 @@
     </tr>
     <hr>
   <% end %>
+
 
 
 <%= link_to 'Edit', edit_house_path(@house) %> |

@@ -38,17 +38,19 @@
   <br>
   <div class="field">
   <hr>
-      <%= form.fields_for :distances do |distances_form| %>
-        <p>最寄駅</p>
+      <% a = 1 %>
+      <%= form.fields_for :distances do |distances| %>
+      <h3>最寄り駅<%= a %></h3>
         <br>
-        <%= distances_form.label :route, "路線名" %>
-        <%= distances_form.text_field :route %>
+        <%= distances.label :route, "路線名" %>
+        <%= distances.text_field :route %>
         <br>
-        <%= distances_form.label :station, "駅名" %>
-        <%= distances_form.text_field :station %>
+        <%= distances.label :station, "駅名" %>
+        <%= distances.text_field :station %>
         <br>
-        <%= distances_form.label :foot, "徒歩分数" %>
-        <%= distances_form.text_field :foot %>
+        <%= distances.label :foot, "徒歩分数" %>
+        <%= distances.text_field :foot %>
+        <% a += 1 %>
         <br>
         <hr>
       <% end %>

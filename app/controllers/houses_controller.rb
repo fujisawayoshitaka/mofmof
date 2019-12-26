@@ -10,7 +10,7 @@ class HousesController < ApplicationController
   # GET /houses/1
   # GET /houses/1.json
   def show
-    @distances = @house.distances
+    @house.distances
   end
 
   # GET /houses/new
@@ -44,7 +44,7 @@ class HousesController < ApplicationController
   # PATCH/PUT /houses/1.json
   def update
     respond_to do |format|
-      if @house.update(house_params)
+      if @house.update(house_update_params)
         format.html { redirect_to @house, notice: 'House was successfully updated.' }
         format.json { render :show, status: :ok, location: @house }
       else
@@ -73,5 +73,9 @@ class HousesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
       params.require(:house).permit(:name, :price, :address, :old, :remarks,distances_attributes:[:route,:station,:foot])
+    end
+
+    def house_update_params
+      params.require(:house).permit(:name, :price, :address, :old, :remarks,distances_attributes:[:route,:station,:foot,:id])
     end
 end
