@@ -1,0 +1,73 @@
+<%= form_with(model: distance, local: true) do |form| %>
+  <% if distance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(distance.errors.count, "error") %> prohibited this distance from being saved:</h2>
+
+      <ul>
+      <% distance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :house do |house_form| %>
+    <div class="field">
+      <%= house_form.label :name%>
+      <%= house_form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= house_form.label :price%>
+      <%= house_form.text_field :price %>
+    </div>
+    <div class="field">
+      <%= house_form.label :address%>
+      <%= house_form.text_field :address %>
+    </div>
+    <div class="field">
+      <%= house_form.label :old%>
+      <%= house_form.text_field :old %>
+    </div>
+    <div class="field">
+      <%= house_form.label :remarks%>
+      <%= house_form.text_field :remarks %>
+    </div>
+  <% end %>
+
+  <p>最寄駅１</p>
+  <div class="field">
+    <%= form.label :route %>
+    <%= form.text_field :route %>
+  </div>
+
+  <div class="field">
+    <%= form.label :station %>
+    <%= form.text_field :station %>
+  </div>
+
+  <div class="field">
+    <%= form.label :foot %>
+    <%= form.text_field :foot %>
+  </div>
+
+  <p>最寄駅２</p>
+  <div class="field">
+    <%= form.label :route %>
+    <%= form.text_field :route %>
+  </div>
+
+  <div class="field">
+    <%= form.label :station %>
+    <%= form.text_field :station %>
+  </div>
+
+  <div class="field">
+    <%= form.label :foot %>
+    <%= form.text_field :foot %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>

@@ -1,0 +1,66 @@
+<%= form_with(model: house, local: true) do |form| %>
+  <% if house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+      <% house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :old %>
+    <%= form.text_field :old %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remarks %>
+    <%= form.text_area :remarks %>
+  </div>
+  <br>
+  <div class="field">
+  <hr>
+      <% a = 1 %>
+      <%= form.fields_for :distances do |distances| %>
+      <h3>最寄り駅<%= a %></h3>
+        <br>
+        <%= distances.label :route, "路線名" %>
+        <%= distances.text_field :route %>
+        <br>
+        <%= distances.label :station, "駅名" %>
+        <%= distances.text_field :station %>
+        <br>
+        <%= distances.label :foot, "徒歩分数" %>
+        <%= distances.text_field :foot %>
+        <% a += 1 %>
+        <br>
+        <hr>
+      <% end %>
+  </div>
+
+
+  <br>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
